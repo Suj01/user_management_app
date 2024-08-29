@@ -30,7 +30,6 @@ import {
     Spinner,
 } from '@chakra-ui/react';
 
-// http://localhost:8080
 
 const UserManagement = () => {
     const [users, setUsers] = useState([]);
@@ -46,7 +45,7 @@ const UserManagement = () => {
     const fetchUser = async () => {
         setIsLoading(true);
         try {
-            const res = await fetch("http://localhost:8080/user/get");
+            const res = await fetch("https://user-management-app-28ra.onrender.com/user/get");
             if (res.ok) {
                 const data = await res.json();
                 if (data && Array.isArray(data.allUsers)) {
@@ -70,7 +69,7 @@ const UserManagement = () => {
 
     const handleAddUser = async () => {
         try {
-            const response = await fetch('http://localhost:8080/user/create', {
+            const response = await fetch('https://user-management-app-28ra.onrender.com/user/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -103,7 +102,7 @@ const UserManagement = () => {
 
     const handleDeleteUser = async () => {
         try {
-            const response = await fetch(`http://localhost:8080/user/delete/${selectedUser}`, {
+            const response = await fetch(`https://user-management-app-28ra.onrender.com/user/delete/${selectedUser}`, {
                 method: 'DELETE',
             });
 
